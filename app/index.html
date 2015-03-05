@@ -24,14 +24,46 @@
     <![endif]-->
     <nav>
         <ul>
-            <li class="brand"><a href="http://localhost:9000" title="">MoviesApp</a></li>
+            <li class="nav-left"><a href="http://localhost:9000" title="">MoviesApp</a></li>
             <li class="nav-right"><a href="http://localhost:9000" title="">home</a></li>
-            <li class="nav-right"><a href="/post-form.html" title="">add new post</a></li>
+            <li class="nav-right"><a href="/post-form.html" title="">add new movie</a></li>
         </ul>
     </nav>
 
     <section class="main-content">
 
+    </section>
+
+    <section class="main-form">
+        <header>
+            <h1>Add New Movie</h1>
+        </header>
+
+        <form class='new-movie-form'>
+            <div class="form-group">
+                <label for='movie-title'>Movie Title</label><br>
+                <input type='text' id='movie-title' class="clearme" />
+            </div>
+            <div class="form-group">
+                <label for='movie-gross'>Total Gross</label><br>
+                <input type='text' id='movie-gross' class="clearme" />
+            </div>
+            <div class="form-group">
+                <label for='movie-release'>Release Date</label><br>
+                <input type="text" id='movie-release'class="clearme" />
+            </div>
+            <div class="form-group">
+                <label for='movie-rating'>MPAA Rating</label><br>
+                <input type="text" id='movie-rating'class="clearme" />
+            </div>
+            <div class="form-group">
+                <label for='movie-description'>Description</label><br>
+                <textarea id='movie-description'class="clearme" ></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="create post" class="btn" />
+            </div>
+        </form>
     </section>
 
 
