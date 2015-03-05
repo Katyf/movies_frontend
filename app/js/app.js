@@ -30,7 +30,7 @@ App.indexMovies = function(movies){
 
 App.renderMovie = function(currentVal, index, array) {
   trace(currentVal, index);
-  $('section.main-content').append('<article class="movie">' + '<h1 class="movie-title">' + currentVal.title + '</h1>' + '<p class="movie-body">' + currentVal.body + '</p>' + '<small class="movie-author">' + currentVal.author + '</small>' + '<p>Comments: ' + currentVal.comments.length + '</article>');
+  $('section.main-content').append('<article class="movie">' + '<h1 class="movie-title">' + currentVal.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + currentVal.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + currentVal.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + currentVal.MPAA_rating + '</p>' + '<p class="movie-description">' + currentVal.description + '</p>' + '</article>');
 };
 
 App.submitMovie = function(){
@@ -40,10 +40,10 @@ App.submitMovie = function(){
     type: 'POST',
     data: { movie: {
       title: $('input#movie-title').val(),
-      total_gross: $('textarea#movie-gross').val(),
+      total_gross: $('input#movie-gross').val(),
       release_date: $('input#movie-release').val(),
       MPAA_rating: $('input#movie-rating').val(),
-      description: $('input#movie-description').val(),
+      description: $('textarea#movie-description').val(),
       }
     },
   })
