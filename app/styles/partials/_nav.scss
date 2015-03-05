@@ -1,0 +1,25 @@
+// nav {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 50px;
+//   background: $black-60;
+//   ul {
+//     @include defaults;
+//     li {
+//        display: inline-block;
+//        &.brand {
+//           a { @include defaults; }
+//        }
+//        &.nav-right {
+//           a {
+//           text-decoration: none;
+//           color: white;
+//           @include button($black-90, white, 4px);
+//           float: right;
+//           }
+//        }
+//     }
+//   }
+// }
