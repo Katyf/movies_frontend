@@ -28,9 +28,10 @@ App.indexMovies = function(movies){
   movies.forEach(App.renderMovie);
 };
 
-App.renderMovie = function(currentVal, index, array) {
-  trace(currentVal, index);
-  $('section.main-content').append('<article class="movie">' + '<h1 class="movie-title">' + currentVal.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + currentVal.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + currentVal.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + currentVal.MPAA_rating + '</p>' + '<p class="movie-description">' + currentVal.description + '</p>' + '</article>');
+App.renderMovie = function(movie, index, array) {
+  trace(movie, index);
+  $('section.main-content').append('<article class="movie" id=' + movie.title.replace(/(\s)+/g, '') + '><h1 class="movie-title">' + movie.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + movie.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + movie.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + movie.MPAA_rating + '</p>' + '<p class="movie-description">' + movie.description + '</p>' +'<ul class="reviews"></ul>' + '</article>');
+  App.getReviews(movie);
 };
 
 App.submitMovie = function(){
@@ -57,6 +58,62 @@ App.submitMovie = function(){
   });
 
 };
+
+
+App.getReviews = function(movie){
+  $.ajax({
+    url: App.url + '/movies/' + movie.id + '/reviews',
+    type: 'GET'
+  })
+  .done(function(data) {
+    trace(data);
+  })
+  .fail(function(jqXHR, textStatus, errorThrown) {
+    trace(jqXHR, textStatus, errorThrown);
+  });
+};
+
+// App.renderReview = function(review, index, array) {
+//   trace(currentVal, index);
+//   // $('section.main-content').append('<article class="movie">' + '<h1 class="movie-title">' + currentVal.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + currentVal.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + currentVal.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + currentVal.MPAA_rating + '</p>' + '<p class="movie-description">' + currentVal.description + '</p>' +'<ul class="reviews"></ul>' + '</article>');
+// };
+
+// App.deleteReview = function(review){
+//   $.ajax({
+//     url: App.url + '/admin/reviews' + review.id.
+//     type: 'DELETE'
+//   })
+//   .done(function(data) {
+//     trace(data);
+//   })
+//   .fail(function(jqXHR, textStatus, errorThrown) {
+//     trace(jqXHR, textStatus, errorThrown);
+//   });
+// };
+
+
+
+
+// App.submitReview = function(){
+//   $.ajax({
+//     url: App.url + '/movies/' + movie.id + '/reviews',
+//     type: 'get',
+//     data: { review: {
+//       author: $('insert author box here').val(),
+//       body: $('insert body box here').val(),
+//       rating: $('insert rating such here').val()
+//       }
+//     },
+
+//   })
+//   .done(function(data) {
+//     trace(data);
+//   })
+//   .fail(function(jqXHR, textStatus, errorThrown) {
+//     trace(jqXHR, textStatus, errorThrown);
+//   });
+// };
+
 
 
 // App.editMovie = function(movie) {
