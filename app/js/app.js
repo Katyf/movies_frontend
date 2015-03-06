@@ -18,6 +18,11 @@ App.getMovies = function(){
   })
   .done(function(data) {
     App.indexMovies(data);
+    var template = Handlebars.compile($('#review-template').html());
+    $('.review-form').append(template({
+      movie: data
+    }));
+
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     trace(jqXHR, textStatus, errorThrown);
@@ -28,10 +33,13 @@ App.indexMovies = function(movies){
   movies.forEach(App.renderMovie);
 };
 
-App.renderMovie = function(currentVal, index, array) {
-  trace(currentVal, index);
-  $('section.main-content').append('<article class="movie">' + '<h1 class="movie-title">' + currentVal.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + currentVal.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + currentVal.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + currentVal.MPAA_rating + '</p>' + '<p class="movie-description">' + currentVal.description + '</p>' + '</article>');
+App.renderMovie = function(movie, index, array) {
+  trace(movie, index);
+  $('section.main-content').append('<article class="movie" id=' + movie.title.replace(/(\s)+/g, '') + '><h1 class="movie-title">' + movie.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + movie.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + movie.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + movie.MPAA_rating + '</p>' + '<p class="movie-description">' + movie.description + '</p>' +'<ul class="reviews"></ul>' + '</article>');
+  App.getReviews(movie);
 };
+
+
 
 App.submitMovie = function(){
   if(event.preventDefault) event.preventDefault();
@@ -57,6 +65,11 @@ App.submitMovie = function(){
   });
 
 };
+
+
+
+
+
 
 
 // App.editMovie = function(movie) {
