@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Movies App', function() {
+describe('Movies App- Reviews', function() {
   it('should pass', function() {
     expect(true).toBe(true);
   });
@@ -8,16 +8,16 @@ describe('Movies App', function() {
     expect(App).toBeDefined();
   });
   it('should be loaded', function(){
-    expect(App.getMovies).toBeDefined();
+    expect(App.getReviews).toBeDefined();
   });
   it('should be loaded', function(){
-    expect(App.indexMovies).toBeDefined();
+    expect(App.deleteReview).toBeDefined();
   });
   it('should be loaded', function(){
-    expect(App.renderMovie).toBeDefined();
+    expect(App.renderReview).toBeDefined();
   });
   it('should be loaded', function(){
-    expect(App.submitMovie).toBeDefined();
+    expect(App.submitReview).toBeDefined();
   });
 });
 
