@@ -66,17 +66,17 @@ App.getReviews = function(movie){
     type: 'GET'
   })
   .done(function(data) {
-    trace(data);
+    data.forEach(App.renderReview, movie);
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     trace(jqXHR, textStatus, errorThrown);
   });
 };
 
-// App.renderReview = function(review, index, array) {
-//   trace(currentVal, index);
-//   // $('section.main-content').append('<article class="movie">' + '<h1 class="movie-title">' + currentVal.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + currentVal.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + currentVal.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + currentVal.MPAA_rating + '</p>' + '<p class="movie-description">' + currentVal.description + '</p>' +'<ul class="reviews"></ul>' + '</article>');
-// };
+App.renderReview = function(review, index, array) {
+  trace(review, index);
+  $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<li class="review">' + '<p class="review-body">' + review.body + '</p>' + '<p class="review-rating">' + review.rating + '</p>' + '<p class="review-author">' + review.author + '</p>' +'</li>');
+};
 
 // App.deleteReview = function(review){
 //   $.ajax({
