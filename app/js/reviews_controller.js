@@ -25,24 +25,36 @@ App.getReviews = function(movie){
 };
 
 App.renderReview = function(review, index, array) {
-  trace(review, index);
+  // trace(review, index);
   $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<li class="review">' + '<p class="review-body">' + review.body + '</p>' + '<p class="review-rating">' + review.rating + '</p>' + '<p class="review-author">' + review.author + '</p>' +'</li>');
+
 };
 
-App.submitReview = function(){
+App.submitReview = function(event){
+  event.preventDefault();
+  var id = parseInt(event.target.id.replace(/\D/g, ''))
+  var $author = $('#movie-review-form-'+ id +' #review-author');
+  var $body = $('#movie-review-form-'+ id +' #review-body');
+  var $rating = $('#movie-review-form-'+ id + ' [type="radio"]:checked');
+
+
   $.ajax({
-    url: App.url + '/movies/' + movie.id + '/reviews',
-    type: 'get',
+    url: App.url + '/movies/' + id + '/reviews',
+    type: 'POST',
     data: { review: {
-      author: $('#movie-review-form-'+ movie.id +' #review-author').val(),
-      body: $('#movie-review-form-'+ movie.id +' #review-body').val(),
-      rating: $('#movie-review-form-'+ movie.id + '[type="radio"]:checked').val()
+      author: $author.val(),
+      body: $body.val(),
+      rating: $rating.val()
       }
     },
-
   })
   .done(function(data) {
     trace(data);
+    var template = Handlebars.compile($('#review-template').html());
+    $('#movie-reviews-' + id).append(template(data));
+    $author.val('');
+    $body.val('');
+    $rating.prop('checked', false);
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     trace(jqXHR, textStatus, errorThrown);

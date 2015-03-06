@@ -96,7 +96,7 @@
 
     <!-- endbuild -->
 
-    <script type='text/x-handlebars-template' id='review-template'>
+    <script type='text/x-handlebars-template' id='review-form-template'>
       <ul>
       {{#each movie}}
         <header>
@@ -125,6 +125,14 @@
         </form>
       {{/each}}
       </ul>
+    </script>
+
+    <script type='text/x-handlebars-template' id='review-template'>
+      <li class="review">
+        <p class="review-body"> {{body}} </p>
+        <p class="review-rating"> {{rating}} </p>
+        <p class="review-author"> {{author}} </p>
+      </li>
     </script>
 
 
