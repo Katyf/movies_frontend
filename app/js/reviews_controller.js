@@ -61,20 +61,16 @@ App.submitReview = function(event){
   });
 };
 
-// App.deleteReview = function(review){
-//   $.ajax({
-//     url: App.url + '/admin/reviews' + review.id,
-//     type: 'DELETE'
-//   })
-//   .done(function(data) {
-//     trace(data);
-//   })
-//   .fail(function(jqXHR, textStatus, errorThrown) {
-//     trace(jqXHR, textStatus, errorThrown);
-//   });
-// };
+App.deleteReview = function(review){
+  $.ajax({
+    url: App.url + '/admin/reviews' + review.id,
+    type: 'DELETE'
+  })
+  .done(function(data) {
+    trace(data, 'comment deleted!');
 
-// App.renderNewReview = function(movie) {
-//       '<section class="review-form"><header><h1>Add A Review</h1></header><form class="new-review-form"><div class="form-group"><label for="review-author">Review Author</label><br><input type="text" id="review-author" class="clearme" /></div><div class="form-group">        <label for="review-body">Review</label><br>        <textarea id="review-body" class="clearme"></textarea>    </div>    <div class="form-group">        <label for="review-rating">Rating</label><br>        1<input type="radio" name="rating" value="1">        2<input type="radio" name="rating" value="2">        3<input type="radio" name="rating" value="3">        4<input type="radio" name="rating" value="4">        5<input type="radio" name="rating" value="5">    </div>    <div class="form-group">        <input type="submit" value="create review" class="btn" />    </div></form>'
-// }
-
+  })
+  .fail(function(jqXHR, textStatus, errorThrown) {
+    trace(jqXHR, textStatus, errorThrown);
+  });
+};
