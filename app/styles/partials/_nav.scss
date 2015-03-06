@@ -6,7 +6,10 @@ nav {
   height: 50px;
   background: $black-60;
   ul {
-    @include defaults;
+    margin-top: 0;
+    padding-top: 0;
+    position: relative;
+    box-sizing: border-box;
     li {
        display: inline-block;
        a {
