@@ -67,10 +67,42 @@
     </section>
 
     <section class="review-form">
+    </section>
+
+    <footer></footer>
+
+
+
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
+
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/reviews_controller.js" type="text/javascript"></script>
+
+    <!-- endbuild -->
+
+    <script type='text/x-handlebars-template' id='review-template'>
+      <ul>
+      {{#each movie}}
         <header>
             <h1>Add A Review</h1>
         </header>
-        <form class="new-review-form">
+        <form class="new-review-form" id=movie-review-form-{{id}}>
             <div class="form-group">
                 <label for="review-author">Review Author</label><br>
                 <input type="text" id="review-author" class="clearme" />
@@ -91,29 +123,10 @@
                 <input type="submit" value="create review" class="btn" />
             </div>
         </form>
-    </section>
-
-    <footer></footer>
-
-
+      {{/each}}
+      </ul>
+    </script>
 
 
-    <!-- build:js(.) scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
-    <!-- endbuild -->
-
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="js/app.js" type="text/javascript"></script>
-    <!-- endbuild -->
   </body>
 </html>

@@ -34,9 +34,9 @@ App.submitReview = function(){
     url: App.url + '/movies/' + movie.id + '/reviews',
     type: 'get',
     data: { review: {
-      author: $('insert author box here').val(),
-      body: $('insert body box here').val(),
-      rating: $('insert rating such here').val()
+      author: $('#movie-review-form-'+ movie.id +' #review-author').val(),
+      body: $('#movie-review-form-'+ movie.id +' #review-body').val(),
+      rating: $('#movie-review-form-'+ movie.id + '[type="radio"]:checked').val()
       }
     },
 
