@@ -17,9 +17,17 @@ App.getReviews = function(movie){
     type: 'GET'
   })
   .done(function(data) {
+
     data.forEach(App.renderReview, movie);
+
     var template = Handlebars.compile($('#review-form-template').html());
     $('#movie-reviews-' + movie.id).append(template(data));
+
+
+    $('form.new-review-form').on('submit', function(e){
+      App.submitReview(e);
+    });
+
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     trace(jqXHR, textStatus, errorThrown);
@@ -29,10 +37,10 @@ App.getReviews = function(movie){
 App.renderReview = function(review, index, array) {
   // trace(review, index);
   $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<li class="review">' + '<p class="review-body">' + review.body + '</p>' + '<p class="review-rating">' + review.rating + '</p>' + '<p class="review-author">' + review.author + '</p>' +'</li>');
-
 };
 
 App.submitReview = function(event){
+  debugger
   event.preventDefault();
   var id = parseInt(event.target.id.replace(/\D/g, ''))
   var $author = $('#movie-review-form-'+ id +' #review-author');
