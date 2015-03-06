@@ -20,13 +20,8 @@ App.getReviews = function(movie){
 
     data.forEach(App.renderReview, movie);
 
-    var template = Handlebars.compile($('#review-form-template').html());
-    $('#movie-reviews-' + movie.id).append(template(data));
+    App.renderForms(movie, data);
 
-
-    $('form.new-review-form').on('submit', function(e){
-      App.submitReview(e);
-    });
 
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
@@ -39,10 +34,23 @@ App.renderReview = function(review, index, array) {
   $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<li class="review">' + '<p class="review-body">' + review.body + '</p>' + '<p class="review-rating">' + review.rating + '</p>' + '<p class="review-author">' + review.author + '</p>' +'</li>');
 };
 
+App.renderForms = function(movie, data){
+      var template = Handlebars.compile($('#review-form-template').html());
+    var $form = $('<form class=new-review-form id=movie-review-form-' + movie.id + '>');
+
+    $form.append(template(data));
+    $('ul#movie-reviews-' + movie.id).append($form);
+
+
+    $('form#movie-review-form-' + movie.id).on('submit', function(e){
+      App.submitReview(e);
+    });
+};
+
 App.submitReview = function(event){
-  debugger
+
   event.preventDefault();
-  var id = parseInt(event.target.id.replace(/\D/g, ''))
+  var id = parseInt(event.target.id.replace(/\D/g, ''));
   var $author = $('#movie-review-form-'+ id +' #review-author');
   var $body = $('#movie-review-form-'+ id +' #review-body');
   var $rating = $('#movie-review-form-'+ id + ' [type="radio"]:checked');
