@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="styles/css/style.css"> <!-- Gem style -->
+
+
+  <title></title>
+</head>
+<body>
+
+
+    <div class="newmovie-btn">
+      <a class="" href="#0">Click me</a></li>
+
+    </div>
+
+
+  <div class="user-modal"> <!-- this is the entire modal form, including the background -->
+    <div class="user-modal-container"> <!-- this is the container wrapper -->
+
+      <div id="signup"> <!-- sign up form -->
+      <h1>Add New Movie</h1>
+        <form class="form">
+          <p class="fieldset">
+            <label for="movie-title">Title</label>
+            <input class="full-width has-padding has-border" id="movie-title" type="text" placeholder="Title">
+          </p>
+
+          <p class="fieldset">
+            <label for="movie-gross">Total Gross</label>
+            <input class="full-width has-padding has-border" id="movie-gross" type="text" placeholder="Total Gross">
+          </p>
+
+          <p class="fieldset">
+            <label for="movie-release">Release Date</label>
+            <input class="full-width has-padding has-border" id="movie-release" type="text"  placeholder="Release Date">
+          </p>
+
+           <p class="fieldset">
+            <label for="movie-rating">MPAA Rating</label>
+            <select name='test'>
+                  <option value='' disabled selected style='display:none;'>MPAA Rating</option>
+                  <option value='G'>G</option>
+                  <option value='PG'>PG</option>
+                  <option value='PG-13'>PG-13</option>
+                  <option value='R'>R</option>
+                  <option value='NC-17'>NC-17</option>
+                </select>
+          </p>
+
+           <p class="fieldset">
+            <label for="movie-description">Description</label><br>
+            <textarea class="full-width has-padding has-border" id="movie-description" type="text"  placeholder="Description"></textarea>
+          </p>
+
+          <p class="fieldset">
+            <input class="full-width has-padding" type="submit" value="Create Movie">
+          </p>
+        </form>
+      </div>
+
+      <a href="#0" class="close-form">Close</a>
+    </div>
+  </div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/modal_form.js"></script> <!-- Gem jQuery -->
+</body>
+</html>
+

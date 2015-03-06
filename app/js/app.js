@@ -56,7 +56,7 @@ App.submitMovie = function(){
       title: $('input#movie-title').val(),
       total_gross: $('input#movie-gross').val(),
       release_date: $('input#movie-release').val(),
-      MPAA_rating: $('input#movie-rating').val(),
+      MPAA_rating: $('select#movie-rating').val(),
       description: $('textarea#movie-description').val(),
       }
     },
@@ -119,7 +119,7 @@ $(document).ready(function(){
 
   App.getMovies();
 
-  $('form.new-movie-form').on('submit', function(e){
+  $('form.form').on('submit', function(e){
     App.submitMovie(e);
   });
 });
