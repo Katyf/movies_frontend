@@ -18,6 +18,8 @@ App.getReviews = function(movie){
   })
   .done(function(data) {
     data.forEach(App.renderReview, movie);
+    var template = Handlebars.compile($('#review-form-template').html());
+    $('#movie-reviews-' + movie.id).append(template(data));
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     trace(jqXHR, textStatus, errorThrown);
