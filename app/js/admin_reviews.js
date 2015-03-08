@@ -26,13 +26,6 @@ App.adminGetReviews = function(){
       App.deleteReview(id)
     });
 
-    $('.edit-review').on('click', function(event){
-      var id = parseInt(event.target.id.replace(/\D/g, ''));
-      App.editReview(id);
-    });
-
-
-
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     trace(jqXHR, textStatus, errorThrown);
@@ -58,20 +51,6 @@ App.deleteReview = function(review){
 };
 
 
-App.editReview = function(id){
-  var $review = $('#review-' + id);
-  var originalHTML = $review.html();
-  var author = $('#review-' + id + ' .review-author').val();
-  var body = $('#review-' + id + ' .review-body').val();
-  var rating = $('#review-' + id + ' .review-rating').val();
-
-
-  var template = Handlebars.compile($('#review-form-template').html());
-  $review.append(template);
-
-  $('#review-author').val(author);
-
-};
 
 
 App.submitReview = function(id){
