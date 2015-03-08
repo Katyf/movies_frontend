@@ -27,10 +27,25 @@
     <nav>
         <ul>
             <li class="nav-left"><a href="http://localhost:9000" title="">MoviesApp</a></li>
-            <li class="nav-right"><a href="http://localhost:9000" title="">home</a></li>
-            <li class="newmovie-btn nav-right"><a href="#" title="">add new movie</a></li>
+            <li class="nav-right"><a href="http://localhost:9000" title="">Home</a></li>
+            <li class="newmovie-btn nav-right"><a href="#" title="">Add New Movie</a></li>
         </ul>
     </nav>
+    <section class="all-but-nav">
+    <div class="slider-container">
+      <div class="slider-photos">
+        <img class="post-image" src="images/dbcposter.jpg">
+        <img class="post-image" src="images/bd_jupiter.jpg">
+      </div>
+      <div class="slider-captions container">
+        <div class="caption-content"></div>
+      </div>
+      <div class="slider-nav"></div>
+      <div class="slider-step">
+        <a href="javascript:void(0)" title="" class="slider-nav prev"><span class="prev">&lt;</span></a>
+        <a href="javascript:void(0)"title="" class="slider-nav next"><span class="next">&gt;</span></a>
+      </div>
+    </div>
 
    <section class="main-content">
         <h1>All Movies!</h1>
@@ -110,9 +125,10 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="js/app.js" type="text/javascript"></script>
+
     <script src="js/modal_form.js" type="text/javascript"></script>
     <script src="js/reviews_controller.js" type="text/javascript"></script>
-
+    <script src="js/img_slider.js" type="text/javascript"></script>
     <!-- endbuild -->
 
     <script type='text/x-handlebars-template' id='review-form-template'>
@@ -141,13 +157,13 @@
     </script>
 
     <script type='text/x-handlebars-template' id='review-template'>
-      <li class="review">
-        <p class="review-body"> {{body}} </p>
-        <p class="review-rating"> {{rating}} </p>
-        <p class="review-author"> {{author}} </p>
-      </li>
+      <div class="review">
+        <p class="rblock" id="review-author"> {{author}} </p>
+        <p class="rblock-right" id="review-rating"> {{rating}} </p><br>
+        <p class="rblock-right" id="review-body"> {{body}} </p></br>
+      </div>
     </script>
 
-
+  </section>
   </body>
 </html>

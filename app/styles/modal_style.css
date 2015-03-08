@@ -83,7 +83,7 @@ Main components
     background: transparent;
   }
   .main-nav a.signin, .main-nav a.signup {
-    padding: .6em 1em;
+    padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 50em;
   }
@@ -95,7 +95,7 @@ Main components
 
 /* --------------------------------
 
-xsigin/signup popup
+modal form popup
 
 -------------------------------- */
 .user-modal {
@@ -134,7 +134,7 @@ xsigin/signup popup
   width: 90%;
   max-width: 600px;
   background: #FFF;
-  margin: 3em auto 4em;
+  margin: 20px auto 0;
   cursor: auto;
   border-radius: 0.25em;
   -webkit-transform: translateY(-30px);
@@ -152,7 +152,7 @@ xsigin/signup popup
 
 
 .form {
-  padding: 10px;
+  padding: 20px;
 }
 .form .fieldset {
   position: relative;

@@ -4,6 +4,7 @@
 @import "partials/footer";
 @import "partials/nav";
 @import "partials/index";
+@import "gallery";
 
 
 body {
@@ -12,6 +13,40 @@ body {
 
 section.main-content {
   position: relative;
-  margin: 100px;
+  margin: 100px auto 0;
+  width: 50%;
 }
 
+section.all-but-nav {
+  margin-top: 90px;
+}
+
+article {
+  margin-bottom: 50px;
+}
+
+.review {
+  padding: 20px;
+  background-color: $black-10;
+  border-radius: 10px;
+}
+
+.rblock {
+  display: inline-block;
+  color: blue;
+  margin: 10px;
+}
+
+p.rblock-right {
+  text-align: right;
+  display: inline-block;
+}
+
+#headerimg {
+  background-color: $lightblue;
+  height: 400px;
+  width: 75%;
+  margin: 0 auto;
+  top: 20px;
+  border-radius: 20px;
+}

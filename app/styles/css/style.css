@@ -100,7 +100,7 @@ xsigin/signup popup
 -------------------------------- */
 .user-modal {
   position: fixed;
-  top: 0;
+  top: 35px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -137,6 +137,7 @@ xsigin/signup popup
   margin: 3em auto 4em;
   cursor: auto;
   border-radius: 0.25em;
+  padding: 20px 30px 30px 20px;
   -webkit-transform: translateY(-30px);
   -moz-transform: translateY(-30px);
   -ms-transform: translateY(-30px);
@@ -152,7 +153,7 @@ xsigin/signup popup
 
 
 .form {
-  padding: 10px;
+  padding: 12px;
 }
 .form .fieldset {
   position: relative;

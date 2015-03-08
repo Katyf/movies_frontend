@@ -21,6 +21,14 @@ App.getReviews = function(movie){
     data.forEach(App.renderReview, movie);
 
     App.renderForms(movie, data);
+    $('.new-review-form').hide();
+    $('.review-button').on('click', function() {
+        $('.new-review-form').show();
+    });
+     $('.toggle-reviews').on('click', function() {
+      console.log('click');
+      $(this).closest('.toggle-reviews').find($('.reviews')).hide();
+    });
 
 
   })
@@ -30,8 +38,10 @@ App.getReviews = function(movie){
 };
 
 App.renderReview = function(review, index, array) {
-  // trace(review, index);
-  $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<li class="review">' + '<p class="review-body">' + review.body + '</p>' + '<p class="review-rating">' + review.rating + '</p>' + '<p class="review-author">' + review.author + '</p>' +'</li>');
+  // // trace(review, index);
+  // $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<li class="review">' + '<p class="review-body">' + review.body + '</p>' + '<p class="review-rating">' + review.rating + '</p>' + '<p class="review-author">' + review.author + '</p>' +'</li>');
+
+  $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<div class="review">' + '<p class="rblock" id="review-author"> ' + review.author + '</p>' + '<p class="rblock-right" id="review-rating"><br>' + review.rating + '</p>' + '<p class="rblock-right" id="review-body">' + review.body + '</p>' +'</div>');
 };
 
 App.renderForms = function(movie, data){

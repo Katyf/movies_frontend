@@ -39,7 +39,7 @@ App.indexMovies = function(movies){
 };
 
 App.renderMovie = function(movie, index, array) {
-  $('section.main-content').append('<article class="movie" id=' + movie.title.replace(/(\s)+/g, '') + '><h1 class="movie-title">' + movie.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + movie.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + movie.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + movie.MPAA_rating + '</p>' + '<p class="movie-description">' + movie.description + '</p>' +'<ul class="reviews" id="movie-reviews-'+ movie.id +'"></ul>' + '</article>');
+  $('section.main-content').append('<article class="movie" id=' + movie.title.replace(/(\s)+/g, '') + '><h1 class="movie-title">' + movie.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + movie.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + movie.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + movie.MPAA_rating + '</p>' + '<p class="movie-description">' + movie.description + '</p>' + '<h3 class="toggle-reviews">Reviews: </h3>' + '<button class="review-button">Add a review</button>' +'<ul class="reviews" id="movie-reviews-'+ movie.id +'"></ul>' + '</article>');
   App.getReviews(movie);
 
 };
@@ -121,4 +121,6 @@ $(document).ready(function(){
   $('form.form').on('submit', function(e){
     App.submitMovie(e);
   });
+
+
 });
