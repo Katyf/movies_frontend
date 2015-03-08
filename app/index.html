@@ -34,8 +34,8 @@
     <section class="all-but-nav">
     <div class="slider-container">
       <div class="slider-photos">
+        <img class="post-image" src="images/movie1.jpg">
         <img class="post-image" src="images/dbcposter.jpg">
-        <img class="post-image" src="images/bd_jupiter.jpg">
       </div>
       <div class="slider-captions container">
         <div class="caption-content"></div>
@@ -47,8 +47,13 @@
       </div>
     </div>
 
+    <div id="headerbar">
+            <h1>All Movies</h1>
+            <p id="searchbox"><input id="searchinput" placeholder="Search"></p>
+        </div>
+
    <section class="main-content">
-        <h1>All Movies!</h1>
+
     </section>
 
 
@@ -160,10 +165,12 @@
       <div class="review">
         <p class="rblock" id="review-author"> {{author}} </p>
         <p class="rblock-right" id="review-rating"> {{rating}} </p><br>
-        <p class="rblock-right" id="review-body"> {{body}} </p></br>
+        <p class="rblock-right" id="review-body"> {{body}} </p>
       </div>
     </script>
 
   </section>
   </body>
 </html>
+
+
