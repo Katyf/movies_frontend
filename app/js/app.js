@@ -28,6 +28,15 @@ App.getMovies = function(){
       App.submitReview(e);
     });
 
+    $('.movieinfo').hide();
+    $('.movie-title').on('click', function(){
+      console.log('click');
+      //debugger;
+      // $(this).closest('div').show();
+      var id = parseInt(this.id.replace(/\D/g, ''));
+      $('#movieinfo-'+ id).slideToggle();
+    });
+
   })
   .fail(function(jqXHR, textStatus, errorThrown) {
     trace(jqXHR, textStatus, errorThrown);
@@ -39,7 +48,7 @@ App.indexMovies = function(movies){
 };
 
 App.renderMovie = function(movie, index, array) {
-  $('section.main-content').append('<article class="movie" id=' + movie.title.replace(/(\s)+/g, '') + '><h1 class="movie-title">' + movie.title + '</h1>' + '<p class="movie-gross">Total Gross: $' + movie.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + movie.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + movie.MPAA_rating + '</p>' + '<p class="movie-description">' + movie.description + '</p>' + '<h3 class="toggle-reviews" id=toggle-reviews-'+ movie.id +' >Reviews: </h3>' + '<button class="review-button" id=movie-reviews-'+ movie.id + '>Add a review</button>' +'<ul class="reviews" id="movie-reviews-'+ movie.id +'"></ul>' + '</article>');
+  $('section.main-content').append('<article class="movie" id=' + movie.title.replace(/(\s)+/g, '') + '><h1 class="movie-title" id=movie-title-' + movie.id + '>' + movie.title + '</h1>' + '<div class="movieinfo" id=movieinfo-' + movie.id + '><p class="movie-gross">Total Gross: $' + movie.total_gross + '</p>' + '<p class="movie-release">Release Date: ' + movie.release_date + '</p>' + '<p class="movie-gross">MPAA Rating: ' + movie.MPAA_rating + '</p>' + '<p class="movie-description">' + movie.description + '</p>' + '<h4 class="toggle-reviews" id=toggle-reviews-'+ movie.id +' >Reviews: </h4>' + '<button class="review-button" id=movie-reviews-'+ movie.id + '>Add a review</button>' +'<ul class="reviews" id="movie-reviews-'+ movie.id +'"></ul>' + '</div></article>');
   App.getReviews(movie);
 
 };
