@@ -28,4 +28,11 @@ jQuery(document).ready(function($){
     }
   });
 
+  $('.user-modal').on('click', function(event){
+    if( $(event.target).is($form_modal) || $(event.target).is('#close-submit') ) {
+      $form_modal.removeClass('is-visible');
+    }
+  });
+
+
 });
