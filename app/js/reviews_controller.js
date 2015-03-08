@@ -89,16 +89,3 @@ App.submitReview = function(event){
   });
 };
 
-App.deleteReview = function(review){
-  $.ajax({
-    url: App.url + '/admin/reviews' + review.id,
-    type: 'DELETE'
-  })
-  .done(function(data) {
-    trace(data, 'comment deleted!');
-
-  })
-  .fail(function(jqXHR, textStatus, errorThrown) {
-    trace(jqXHR, textStatus, errorThrown);
-  });
-};
