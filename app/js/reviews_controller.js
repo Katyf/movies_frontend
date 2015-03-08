@@ -21,16 +21,20 @@ App.getReviews = function(movie){
     data.forEach(App.renderReview, movie);
 
     App.renderForms(movie, data);
+
     $('.new-review-form').hide();
+    $('ul.reviews').hide();
+
 
     $('.review-button').on('click', function() {
-
         var id = parseInt(this.id.replace(/\D/g, ''));
         $('#movie-review-form-' + id).show();
     });
-     $('.toggle-reviews').on('click', function() {
-      console.log('click');
-      $(this).closest('.toggle-reviews').find($('.reviews')).hide();
+
+
+    $('.toggle-reviews').on('click', function() {
+      var id = parseInt(this.id.replace(/\D/g, ''));
+      $('ul#movie-reviews-'+ id).toggle();
     });
 
 
