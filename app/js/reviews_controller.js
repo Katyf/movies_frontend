@@ -28,6 +28,7 @@ App.getReviews = function(movie){
 
     $('.review-button').on('click', function() {
         var id = parseInt(this.id.replace(/\D/g, ''));
+        $(this).hide();
         $('#movie-review-form-' + id).show();
     });
 
@@ -56,7 +57,8 @@ App.renderForms = function(movie, data){
     var $form = $('<form class=new-review-form id=movie-review-form-' + movie.id + '>');
 
     $form.append(template(data));
-    $('ul#movie-reviews-' + movie.id).append($form);
+    $('div#form-reviews-' + movie.id).append($form);
+
 
 
     $('form#movie-review-form-' + movie.id).on('submit', function(e){
@@ -65,7 +67,7 @@ App.renderForms = function(movie, data){
 };
 
 App.submitReview = function(event){
-  debugger
+
   event.preventDefault();
   var id = parseInt(event.target.id.replace(/\D/g, ''));
   var $author = $('#movie-review-form-'+ id +' #review-author');
@@ -85,6 +87,7 @@ App.submitReview = function(event){
   })
   .done(function(data) {
     trace(data);
+    $('.review-button').show();
     var template = Handlebars.compile($('#review-template').html());
     $('ul#movie-reviews-' + id).append(template(data));
     $author.val('');
