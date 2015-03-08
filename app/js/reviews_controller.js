@@ -44,7 +44,7 @@ App.renderReview = function(review, index, array) {
   // // trace(review, index);
   // $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<li class="review">' + '<p class="review-body">' + review.body + '</p>' + '<p class="review-rating">' + review.rating + '</p>' + '<p class="review-author">' + review.author + '</p>' +'</li>');
 
-  $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<div class="review">' + '<p class="rblock" id="review-author"> ' + review.author + '</p>' + '<p class="rblock-right" id="review-rating"><br>' + review.rating + '</p>' + '<p class="rblock-right" id="review-body">' + review.body + '</p>' +'</div>');
+  $('#'+ this.title.replace(/(\s)+/g, '') +' .reviews').append('<div class="review">' + '<p class="rblock" id="review-author">' + review.author + '</p>' + '<p class="rblock-right" id="review-rating">' + review.rating + '</p><br>' + '<p class="rblock-right" id="review-body">' + review.body + '</p>' +'</div>');
 };
 
 App.renderForms = function(movie, data){

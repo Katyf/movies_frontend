@@ -9,12 +9,30 @@
 
 body {
   font-family: 'Raleway', sans-serif;
+  background-color: $black-80;
 }
 
 section.main-content {
   position: relative;
-  margin: 100px auto 0;
-  width: 50%;
+  margin: 0px auto 0;
+  width: 75%;
+  background-color: white;
+  padding: 100px;
+}
+
+div#headerbar {
+  display: inline-block;
+  background-color: $black-10;
+  width: 100%;
+  margin-top: -60px;
+  text-align: center;
+  padding: 10px;
+  line-height: 60%;
+}
+
+#searchbox {
+  display: inline-block;
+  left: 100px;
 }
 
 section.all-but-nav {
