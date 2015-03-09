@@ -1,0 +1,14 @@
+footer {
+  bottom: 0px;
+  left: -10px;
+  width: 110%;
+  height: 200px;
+  background: $black-90;
+  z-index: $z-nav;
+  margin: 0;
+  text-align: center;
+  @include defaults;
+  p {
+    margin: 50px;
+  }
+}
