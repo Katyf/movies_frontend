@@ -24,7 +24,7 @@ section.main-content {
 
 div#headerbar {
   display: inline-block;
-  background-color: #00AAFF;
+  background-color: #0F244C;
   width: 100%;
   margin-top: -60px; 
   text-align: center;
@@ -50,14 +50,16 @@ article {
 
 .review {
   padding: 20px;
-  background-color: $black-10;
+  background-color: #FAFAFA;
   border-radius: 10px;
+  margin: 5px;
 }
 
 .rblock {
   display: inline-block;
-  color: blue;
+  color: #00AAFF;
   margin: 10px;
+  font-style: italic;
 }
 
 p.rblock-right {
