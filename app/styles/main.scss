@@ -9,26 +9,30 @@
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: $black-90;
+  background-color: $black-70;
 }
 
 section.main-content {
   position: relative;
   margin: 0px auto 0;
   width: 75%;
-  background-color: white;
+  background-color: $black-10;
   padding: 100px;
+  height: 110%;
+  color: $black-90;
 }
 
 div#headerbar {
   display: inline-block;
-  background-color: $lightblue;
+  background-color: #00AAFF;
   width: 100%;
-  margin-top: -60px;
+  margin-top: -60px; 
   text-align: center;
   padding: 10px;
   line-height: 60%;
   z-index: 999;
+  color: white;
+  border-radius: 10px;
 }
 
 #searchbox {
