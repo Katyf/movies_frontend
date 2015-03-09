@@ -97,8 +97,11 @@ App.submitReview = function(event){
     $('#movie-review-form-' + id).hide();
 
   })
-  .fail(function(jqXHR, textStatus, errorThrown) {
-    trace(jqXHR, textStatus, errorThrown);
+  .fail(function(error){
+    if (error.status === 401) {
+      console.log('send to login screen');
+      window.location.href = '/sign_in.html';
+    };
   });
 };
 
