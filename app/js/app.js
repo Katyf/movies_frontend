@@ -76,17 +76,14 @@ App.submitMovie = function(){
     trace(data);
     $('.clearme').val('');
   })
-  .fail(function(jqXHR, textStatus, errorThrown) {
-    trace(jqXHR, textStatus, errorThrown);
+  .fail(function(error){
+    if (error.status === 401) {
+      console.log('send to login screen');
+      window.location.href = '/sign_in.html';
+    };
   });
 
 };
-
-
-
-
-
-
 
 // App.editMovie = function(movie) {
 //   var movieId = parseInt(movie);
@@ -133,5 +130,19 @@ $(document).ready(function(){
     App.submitMovie(e);
   });
 
-
+  var authToken = localStorage.getItem('authToken');
+  if(authToken === null){
+    $('#new-movie').hide();
+    $('#admin-button').hide();
+    $('#admin-movie-button').hide();
+    $('#sign-out').hide();
+  };
+  $("a.dropdown-toggle").click(function(ev) {
+    $(".dropdown-toggle").dropdown("toggle");
+    return false;
+  });
+  $("ul.dropdown-menu").click(function(ev) {
+    $(".dropdown-toggle").dropdown("toggle");
+    return false;
+  });
 });

@@ -7,7 +7,7 @@ var UserApp = (function() {
   var run = function() {
     authToken = localStorage.getItem('authToken');
 
-    apiHost = 'http://localhost:3000/';
+    apiHost = 'http://localhost:3000';
     setupAjaxRequests();
 
     $('#loginForm').on('submit', submitLogin);
@@ -50,9 +50,13 @@ var UserApp = (function() {
       data: $form.serialize()
     })
     .done(loginSuccess)
-    .fail(function() {
-      console.log("error");
-    });
+    .fail(function(error){
+    if (error.status === 401) {
+      console.log('send to sign up screen');
+      alert("This is not a valid account. Sign up for an account now!")
+      window.location.href = '/sign_up.html';
+    };
+  });
     return false;
   };
 
@@ -74,7 +78,8 @@ var UserApp = (function() {
     event.preventDefault();
     localStorage.removeItem('authToken');
     authToken = undefined;
-
+    console.log('User has been signed out');
+    location.reload();
   };
 
   return {run: run};

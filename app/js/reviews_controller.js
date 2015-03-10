@@ -23,7 +23,7 @@ App.getReviews = function(movie){
     App.renderForms(movie, data);
 
     $('.new-review-form').hide();
-    //$('ul.reviews').hide();
+    // $('ul.reviews').hide();
 
 
     $('.review-button').on('click', function() {
@@ -33,11 +33,11 @@ App.getReviews = function(movie){
     });
 
 
-    //$('.toggle-reviews').on('click', function() {
-      //var id = parseInt(this.id.replace(/\D/g, ''));
-      //$('ul#movie-reviews-'+ id).toggle();
-      //debugger;
-    //});
+    $('.toggle-reviews').on('click', function() {
+      var id = parseInt(this.id.replace(/\D/g, ''));
+      $('ul#movie-reviews-'+ id).toggle();
+      // debugger;
+    });
 
 
   })
